@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity
 
     private GuillotineAnimation animation;
 
-    private String inputPassword = "";
+    private String inputPsw = "";
 
     private float x1, y1, x2, y2;
 
@@ -309,7 +309,7 @@ public class MainActivity extends AppCompatActivity
                         radioButton1.setChecked(false);
                         radioButton2.setChecked(false);
                         radioButton3.setChecked(false);
-                        inputPassword = "";
+                        inputPsw = "";
                         statusButton.setState(MaterialMenuDrawable.IconState.ARROW);
                     }
                 })
@@ -354,10 +354,10 @@ public class MainActivity extends AppCompatActivity
 
 
     private void checkPassword() {
-        if (inputPassword.length() != 4) {
+        if (inputPsw.length() != 4) {
             return;
         }
-        if (SettingManager.getInstance().getPassword().equals(inputPassword)) {
+        if (SettingManager.getInstance().getPassword().equals(inputPsw)) {
             isLoading = true;
             YoYo.with(Techniques.Bounce).delay(0).duration(1000).playOn(radioButton3);
             statusButton.animateState(MaterialMenuDrawable.IconState.CHECK);
@@ -386,7 +386,7 @@ public class MainActivity extends AppCompatActivity
             radioButton1.setChecked(false);
             radioButton2.setChecked(false);
             radioButton3.setChecked(false);
-            inputPassword = "";
+            inputPsw = "";
             statusButton.animateState(MaterialMenuDrawable.IconState.X);
         }
     }
@@ -448,7 +448,7 @@ public class MainActivity extends AppCompatActivity
                         radioButton1.setChecked(false);
                         radioButton2.setChecked(false);
                         radioButton3.setChecked(false);
-                        inputPassword = "";
+                        inputPsw = "";
 
                         CoCoinFragmentManager.mainActivityEditMoneyFragment.setNumberText(
                                 CoCoinFragmentManager.mainActivityEditMoneyFragment.getNumberText().toString()
@@ -460,9 +460,9 @@ public class MainActivity extends AppCompatActivity
                             CoCoinFragmentManager.mainActivityEditMoneyFragment.setHelpText(" ");
                         } else {
 
-                            switch (inputPassword.length()) {
+                            switch (inputPsw.length()) {
                                 case 0:
-                                    inputPassword = "";
+                                    inputPsw = "";
                                     break;
                                 case 1:
                                     radioButton0.setChecked(false);
@@ -475,7 +475,7 @@ public class MainActivity extends AppCompatActivity
                                     break;
                                 default:
                                     radioButton3.setChecked(false);
-                                    inputPassword = inputPassword.substring(0, inputPassword.length() - 1);
+                                    inputPsw = inputPsw.substring(0, inputPsw.length() - 1);
                             }
                         }
 
@@ -485,26 +485,26 @@ public class MainActivity extends AppCompatActivity
                         statusButton.animateState(MaterialMenuDrawable.IconState.ARROW);
                     }
 
-                    switch (inputPassword.length()) {
+                    switch (inputPsw.length()) {
                         case 0:
                             radioButton0.setChecked(true);
                             YoYo.with(Techniques.Bounce).delay(0).duration(1000).playOn(radioButton0);
-                            inputPassword += CoCoinUtil.BUTTONS[position];
+                            inputPsw += CoCoinUtil.BUTTONS[position];
                             break;
                         case 1:
                             radioButton0.setChecked(true);
                             YoYo.with(Techniques.Bounce).delay(1).duration(1000).playOn(radioButton1);
-                            inputPassword += CoCoinUtil.BUTTONS[position];
+                            inputPsw += CoCoinUtil.BUTTONS[position];
                             break;
                         case 2:
                             radioButton0.setChecked(true);
                             YoYo.with(Techniques.Bounce).delay(2).duration(1000).playOn(radioButton2);
-                            inputPassword += CoCoinUtil.BUTTONS[position];
+                            inputPsw += CoCoinUtil.BUTTONS[position];
                             break;
                         case 3:
                             radioButton0.setChecked(true);
                             YoYo.with(Techniques.Bounce).delay(3).duration(1000).playOn(radioButton3);
-                            inputPassword += CoCoinUtil.BUTTONS[position];
+                            inputPsw += CoCoinUtil.BUTTONS[position];
                             break;
                     }
                 }
@@ -724,7 +724,7 @@ public class MainActivity extends AppCompatActivity
         radioButton3.setChecked(false);
 
         isLoading = false;
-        inputPassword = "";
+        inputPsw = "";
         System.gc();
     }
 
